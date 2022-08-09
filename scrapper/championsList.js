@@ -21,31 +21,26 @@ class ChampionsList {
         await this.#writeDataToFile('championsList data', this.#data, 'txt')
     }
 
-    saveToHtml() {
-        this.#writeDataToFile('Tier_table', this.#data, 'html');
+    async saveToHtml() {
+        await this.#makeDirForData()
+        await this.#writeDataToFile('Tier_table', this.#data, 'html');
     }
 
     #makeDirForData(){
         let patch = this.#patch
 
         return new Promise(function (resolve, reject) {
-            fs.access("./directory-name", function(accessError) {
-                if (accessError) {
-                    console.log("Directory does not exist.")
-                    fs.mkdir(path.join(__dirname, patch), (mkdirError) => {
-                        if (mkdirError) {
-                            console.log(`Folder "${patch}" exists already.`)
-                            reject()
-                        } else {
-                            console.log(`New folder "${patch}" has been created.`)
-                            resolve()
-                        }
-                    })
-                    resolve()
-                } else {
+            console.log("Directory does not exist.")
+            fs.mkdir(path.join(__dirname, patch), (mkdirError) => {
+                if (mkdirError) {
+                    console.log(`Folder "${patch}" exists already.`)
                     reject()
+                } else {
+                    console.log(`New folder "${patch}" has been created.`)
+                    resolve()
                 }
             })
+            resolve()
         })
     }
 

@@ -78,6 +78,7 @@ module.exports = LolScrapper;
     await sc.loadInfo()
     await sc.showFields()
     await sc.champsList.saveToTxt()
+    await sc.champsList.saveToHtml()
 })()
 
 
