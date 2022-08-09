@@ -10,7 +10,7 @@ class LoginSuperAdminSession {
 
     loginAttempt(login, pwd) {
         this.#checkLoginAttemption(login, pwd)
-        if(this.#login === login && this.#pwd === pwd) this.#loggedIn = true
+        if (this.#login === login && this.#pwd === pwd) this.#loggedIn = true
     }
 
     #checkLoginAttemption(login, pwd) {
@@ -19,7 +19,7 @@ class LoginSuperAdminSession {
             this.#validatePassword(pwd)
         } catch (err) {
             console.log('Login attemption failed!')
-            if(err instanceof ValidationError){
+            if (err instanceof ValidationError) {
                 console.log('Login and password must be strings with more then 4 symbols!')
             } else {
                 console.log('Not validation error occurred!')
