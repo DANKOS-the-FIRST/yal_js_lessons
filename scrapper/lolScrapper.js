@@ -13,7 +13,7 @@ class LolScrapper {
         this.champsList = new championsList()
     }
 
-    async loadInfo(){
+    async loadInfo() {
         console.log('step 1')
         this.patch = await this.loadPatch(this.#urlPatch)
 
@@ -80,7 +80,6 @@ module.exports = LolScrapper;
     await sc.champsList.saveToTxt()
     await sc.champsList.saveToHtml()
 })()
-
 
 
 // request(this.#url, function (error, _response, body) {

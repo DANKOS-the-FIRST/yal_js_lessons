@@ -21,7 +21,7 @@ function finish21() {
     });
 }
 
-function finish22() {
+async function finish22() {
     return new Promise((resolve) => {
         console.log('########finish22########');
         return setTimeout(resolve, 1500);
@@ -33,6 +33,7 @@ async function main() {
     await finish21()
     await new Promise((resolve) => setTimeout(resolve, 3000))
     await finish22()
+    console.log('after 22')
 }
 
 (async () => {
